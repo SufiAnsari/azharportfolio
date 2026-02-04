@@ -24,13 +24,24 @@ export function AboutSection() {
 
           {/* Left: Image (Reference style) */}
           <div className="relative mx-auto lg:mx-0">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/5 shadow-[0_0_50px_rgba(145,94,255,0.2)] glass-panel">
-              <Image
-                src="/profile.png"
-                alt="Azhar Hakim"
-                fill
-                className="object-cover"
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-visible border-4 border-white/5 shadow-[0_0_50px_rgba(145,94,255,0.2)]">
+              <GlowingEffect
+                spread={60}
+                glow={true}
+                disabled={false}
+                proximity={100}
+                inactiveZone={0.01}
+                borderWidth={3}
+                movementDuration={0.5}
               />
+              <div className="relative w-full h-full rounded-full overflow-hidden">
+                <Image
+                  src="/profile.png"
+                  alt="Azhar Hakim"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             {/* Decorative blob behind */}
             <div className="absolute inset-0 bg-gradient-to-tr from-accent to-transparent opacity-20 blur-3xl -z-10 rounded-full scale-110" />
