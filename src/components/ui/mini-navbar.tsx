@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 const AnimatedNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
     const defaultTextColor = 'text-gray-300';
@@ -96,6 +97,16 @@ export function MiniNavbar() {
                        border border-[#333] bg-[#1f1f1f57]
                        w-[calc(100%-2rem)] sm:w-auto
                        transition-[border-radius] duration-0 ease-in-out`}>
+
+            <GlowingEffect
+                spread={50}
+                glow={true}
+                disabled={false}
+                proximity={80}
+                inactiveZone={0.01}
+                borderWidth={2}
+                movementDuration={0.5}
+            />
 
             <div className="flex items-center justify-between w-full gap-x-6 sm:gap-x-8">
                 <div className="flex items-center">
