@@ -2,6 +2,7 @@
 
 import { Container, Section } from '@/components/ui';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { HyperText } from '@/components/ui/hyper-text';
 
 export function ExperienceSection() {
   const experienceData = [
@@ -28,8 +29,7 @@ export function ExperienceSection() {
 
       <Container size="md">
         <div className="text-center mb-16 relative z-10">
-          <h2 className="text-4xl font-bold mb-2">Experience</h2>
-          <div className="h-1 w-20 bg-accent rounded-full mx-auto" />
+          <HyperText text="Experience" className="text-4xl font-bold mx-auto" />
         </div>
 
         <div className="space-y-8 relative z-10">

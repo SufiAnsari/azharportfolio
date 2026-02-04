@@ -2,6 +2,7 @@
 
 import { Container, Section } from '@/components/ui';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { HyperText } from '@/components/ui/hyper-text';
 import { useState, FormEvent } from 'react';
 
 export function ContactSection() {
@@ -32,8 +33,7 @@ export function ContactSection() {
     <Section id="contact" padding="xl" className="pb-32">
       <Container size="md">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-2">Contact</h2>
-          <div className="h-1 w-20 bg-accent rounded-full mx-auto" />
+          <HyperText text="Contact" className="text-4xl font-bold mx-auto" />
         </div>
 
         <div className="relative glass-panel p-8 md:p-10 rounded-2xl max-w-2xl mx-auto shadow-2xl">

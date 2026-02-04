@@ -2,6 +2,7 @@
 
 import { Container, Section } from '@/components/ui';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { HyperText } from '@/components/ui/hyper-text';
 import Image from 'next/image';
 
 export function AboutSection() {
@@ -16,8 +17,7 @@ export function AboutSection() {
       <Container size="lg">
         {/* Title */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-2">About Me</h2>
-          <div className="h-1 w-20 bg-accent rounded-full" />
+          <HyperText text="About Me" className="text-4xl md:text-5xl font-bold" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

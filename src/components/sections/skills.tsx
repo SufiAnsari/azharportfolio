@@ -2,6 +2,7 @@
 
 import { Container, Section } from '@/components/ui';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { HyperText } from '@/components/ui/hyper-text';
 
 /* Helper Component for Dot Progress */
 const SkillRow = ({ name, level }: { name: string; level: number }) => {
@@ -59,8 +60,7 @@ export function SkillsSection() {
       <Container size="lg">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-2">My Skills</h2>
-          <div className="h-1 w-20 bg-accent rounded-full mx-auto" />
+          <HyperText text="My Skills" className="text-4xl font-bold mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
