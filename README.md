@@ -88,4 +88,4 @@ The site can be deployed to any platform supporting Next.js:
 
 ## 📄 License
 
-MIT © Azhar Hakim
+© Azhar Hakim
