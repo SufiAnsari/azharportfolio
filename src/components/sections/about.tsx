@@ -7,9 +7,9 @@ import Image from 'next/image';
 
 export function AboutSection() {
   const services = [
-    { title: 'Web Development', icon: '💻' },
-    { title: 'Backend Systems', icon: '⚙️' },
-    { title: 'Problem Solving', icon: '🧩' },
+    { title: 'Endpoint Support', icon: '🖥️' },
+    { title: 'IT Operations', icon: '⚙️' },
+    { title: '.NET Development', icon: '💻' },
   ];
 
   return (
@@ -76,10 +76,10 @@ export function AboutSection() {
               <div className="relative">
                 <h3 className="text-2xl font-bold mb-4">I&apos;m Azhar Hakim</h3>
                 <p className="text-foreground-muted leading-relaxed text-lg">
-                  IT Analyst & Software Developer with a strong foundation in Computer Engineering.
-                  I specialize in building reliable systems, automating workflows, and ensuring
-                  operational excellence. With a background in both .NET development and
-                  enterprise infrastructure support, I bridge the gap between code and operations.
+                  I&apos;m an IT Analyst based in Pune with experience supporting enterprise endpoints and
+                  maintaining .NET applications. My day-to-day work includes resolving user issues,
+                  analyzing incidents, and supporting Windows environments alongside scripting and
+                  database tasks that keep services reliable for business teams.
                 </p>
               </div>
             </div>

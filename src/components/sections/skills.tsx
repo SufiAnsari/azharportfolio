@@ -62,11 +62,14 @@ export function SkillsSection() {
         {/* Title */}
         <div className="text-center mb-16">
           <HyperText
-            text="My Skills"
+            text="IT Analyst Skills"
             className="text-4xl font-bold mx-auto"
             id="skills-heading"
             as="h2"
           />
+          <p className="mt-4 text-foreground-muted text-lg max-w-2xl mx-auto">
+            Core technologies used for endpoint support, Windows administration, and .NET application delivery.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
