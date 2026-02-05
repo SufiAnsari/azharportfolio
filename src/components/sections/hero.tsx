@@ -34,13 +34,13 @@ export function HeroSection() {
             </h1>
 
             <h2 className="text-base md:text-lg lg:text-xl font-bold mb-6 tracking-tight">
-              <span className="text-gradient">IT Analyst / Software Developer / Endpoint Support</span>
+              <span className="text-gradient">IT Analyst in Pune • Endpoint Support Engineer • .NET Developer</span>
             </h2>
 
             <p className="text-foreground-muted text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              I am a dedicated IT professional with experience in desktop support and software development.
-              I have worked in enterprise environments delivering high client satisfaction, resolving
-              critical technical issues, and maintaining system stability.
+              I am a dedicated IT professional focused on endpoint support, incident resolution, and
+              .NET application maintenance. I support enterprise users, troubleshoot Windows devices,
+              and keep infrastructure services stable while collaborating with teams to restore service quickly.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">

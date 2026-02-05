@@ -29,18 +29,21 @@ const siteUrl =
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
     title: {
-        default: 'Portfolio | Developer & Systems Engineer',
-        template: '%s | Portfolio',
+        default: 'Azhar Hakim Portfolio | IT Analyst in Pune | Endpoint Support Engineer',
+        template: '%s | Azhar Hakim Portfolio',
     },
-    description: 'Interactive Technical Portfolio',
+    description:
+        'Azhar Hakim portfolio showcasing IT Analyst experience in Pune, endpoint support engineering, and .NET software development.',
     keywords: [
-        'IT Analyst',
+        'Azhar Hakim portfolio',
+        'IT Analyst Pune',
+        'Endpoint Support Engineer',
         'Software Developer',
-        'Systems Engineer',
-        'Portfolio',
         'Endpoint Support',
         '.NET',
-        'TypeScript',
+        'PowerShell',
+        'Windows Server',
+        'SQL',
     ],
     authors: [{ name: 'Azhar Hakim' }],
     creator: 'Azhar Hakim',
@@ -54,13 +57,15 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         url: '/',
-        title: 'Portfolio | Developer & Systems Engineer',
-        description: 'Interactive Technical Portfolio',
+        title: 'Azhar Hakim Portfolio | IT Analyst in Pune | Endpoint Support Engineer',
+        description:
+            'Azhar Hakim portfolio highlighting IT analyst support, endpoint troubleshooting, and .NET development experience.',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Portfolio | Developer & Systems Engineer',
-        description: 'Interactive Technical Portfolio',
+        title: 'Azhar Hakim Portfolio | IT Analyst in Pune | Endpoint Support Engineer',
+        description:
+            'Azhar Hakim portfolio with IT analyst experience, endpoint support, and .NET development.',
     },
     formatDetection: {
         email: false,

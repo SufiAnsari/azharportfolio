@@ -10,15 +10,27 @@ export function ExperienceSection() {
       role: 'IT Analyst',
       company: 'Capita',
       period: 'May 2023 - Present',
-      description: 'Providing high-quality technical support for enterprise clients, managing critical incidents, and maintaining infrastructure stability.',
-      color: 'border-accent'
+      summary: 'Delivering endpoint support and incident resolution for enterprise users while keeping Windows services reliable.',
+      highlights: [
+        'Diagnose and resolve Windows desktop issues, application errors, and connectivity problems for end users.',
+        'Track incidents and service requests through ticketing workflows, documenting fixes and root causes.',
+        'Support core infrastructure services such as DNS/DHCP and assist with system stability checks.',
+        'Coordinate with internal teams to prioritize critical incidents and restore services quickly.'
+      ],
+      color: 'border-accent',
     },
     {
       role: 'Junior Software Developer',
       company: 'Allscripts Technology',
       period: 'Sep 2021 - Apr 2023',
-      description: 'Developed and maintained reliable desktop and web applications using the .NET ecosystem.',
-      color: 'border-accent-secondary'
+      summary: 'Maintained .NET applications and supported data workflows alongside development teams.',
+      highlights: [
+        'Developed and maintained .NET applications with C# and SQL for internal business processes.',
+        'Assisted with bug fixes, code updates, and deployments in collaboration with senior developers.',
+        'Supported database queries and data validation to keep application outputs accurate.',
+        'Documented changes and helped with user support for application updates.'
+      ],
+      color: 'border-accent-secondary',
     },
   ];
 
@@ -38,11 +50,14 @@ export function ExperienceSection() {
       <Container size="md">
         <div className="text-center mb-16 relative z-10">
           <HyperText
-            text="Experience"
+            text="IT Analyst Experience"
             className="text-4xl font-bold mx-auto"
             id="experience-heading"
             as="h2"
           />
+          <p className="mt-4 text-foreground-muted text-lg max-w-2xl mx-auto">
+            Hands-on support and development experience aligned with endpoint support engineer responsibilities.
+          </p>
         </div>
 
         <div className="space-y-8 relative z-10">
@@ -65,7 +80,12 @@ export function ExperienceSection() {
                   <div className="flex items-center gap-4 text-sm text-foreground-muted font-mono mb-6">
                     <span>{item.period}</span>
                   </div>
-                  <p className="text-foreground-muted leading-relaxed text-lg">{item.description}</p>
+                  <p className="text-foreground-muted leading-relaxed text-lg mb-6">{item.summary}</p>
+                  <ul className="list-disc pl-6 space-y-2 text-foreground-muted">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
