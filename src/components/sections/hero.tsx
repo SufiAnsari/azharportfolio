@@ -5,18 +5,30 @@ import Image from 'next/image';
 
 export function HeroSection() {
   return (
-    <Section padding="xl" className="relative pt-32 lg:pt-48 pb-20 overflow-hidden">
-
+    <Section
+      padding="xl"
+      className="relative pt-32 lg:pt-48 pb-20 overflow-hidden"
+      ariaLabelledby="hero-heading"
+    >
       {/* Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[400px] h-[400px] bg-accent-secondary/20 rounded-full blur-[100px] pointer-events-none" />
+      <div
+        className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-[20%] right-[-10%] w-[400px] h-[400px] bg-accent-secondary/20 rounded-full blur-[100px] pointer-events-none"
+        aria-hidden="true"
+      />
 
       <Container size="lg">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
           {/* Left: Text Content */}
           <div className="flex-1 text-center lg:text-left z-10 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+            <h1
+              id="hero-heading"
+              className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight"
+            >
               Hi, I&apos;m <br className="hidden md:block" />
               Azhar Hakim
             </h1>
@@ -74,37 +86,59 @@ export function HeroSection() {
                   alt="Azhar Hakim"
                   fill
                   className="object-cover"
+                  sizes="(min-width: 1024px) 384px, (min-width: 768px) 288px, 288px"
                   priority
                 />
               </div>
 
               {/* Floating Orbit Elements (Visual Flair) */}
-              <div className="absolute -inset-4 border border-accent/30 rounded-full animate-[spin_10s_linear_infinite]" />
-              <div className="absolute -inset-12 border border-accent-secondary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+              <div
+                className="absolute -inset-4 border border-accent/30 rounded-full animate-[spin_10s_linear_infinite]"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -inset-12 border border-accent-secondary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"
+                aria-hidden="true"
+              />
 
               {/* Decorative Icon Bubbles */}
               {/* C# Bubble */}
-              <div className="absolute top-0 right-10 w-12 h-12 bg-surface rounded-full border border-accent flex items-center justify-center z-20 shadow-lg shadow-accent/20 animate-bounce delay-100">
+              <div
+                className="absolute top-0 right-10 w-12 h-12 bg-surface rounded-full border border-accent flex items-center justify-center z-20 shadow-lg shadow-accent/20 animate-bounce delay-100"
+                aria-hidden="true"
+              >
                 <span className="text-xs font-bold text-accent">C#</span>
               </div>
 
               {/* .NET Bubble */}
-              <div className="absolute bottom-12 left-0 w-14 h-14 bg-surface rounded-full border border-accent-secondary flex items-center justify-center z-20 shadow-lg shadow-accent-secondary/20 animate-bounce delay-300">
+              <div
+                className="absolute bottom-12 left-0 w-14 h-14 bg-surface rounded-full border border-accent-secondary flex items-center justify-center z-20 shadow-lg shadow-accent-secondary/20 animate-bounce delay-300"
+                aria-hidden="true"
+              >
                 <span className="text-xs font-bold text-accent-secondary">.NET</span>
               </div>
 
               {/* PowerShell Bubble - Top Left */}
-              <div className="absolute top-10 left-4 w-10 h-10 bg-surface rounded-full border border-teal-400 flex items-center justify-center z-20 shadow-lg shadow-teal-400/20 animate-bounce delay-500">
+              <div
+                className="absolute top-10 left-4 w-10 h-10 bg-surface rounded-full border border-teal-400 flex items-center justify-center z-20 shadow-lg shadow-teal-400/20 animate-bounce delay-500"
+                aria-hidden="true"
+              >
                 <span className="text-[10px] font-bold text-teal-400">PS</span>
               </div>
 
               {/* Windows Bubble - Bottom Right */}
-              <div className="absolute bottom-4 right-12 w-11 h-11 bg-surface rounded-full border border-blue-400 flex items-center justify-center z-20 shadow-lg shadow-blue-400/20 animate-bounce delay-200">
+              <div
+                className="absolute bottom-4 right-12 w-11 h-11 bg-surface rounded-full border border-blue-400 flex items-center justify-center z-20 shadow-lg shadow-blue-400/20 animate-bounce delay-200"
+                aria-hidden="true"
+              >
                 <span className="text-[10px] font-bold text-blue-400">Win</span>
               </div>
 
               {/* Network Bubble - Far Right Middle */}
-              <div className="absolute top-1/2 -right-4 w-9 h-9 bg-surface rounded-full border border-yellow-400 flex items-center justify-center z-20 shadow-lg shadow-yellow-400/20 animate-bounce delay-700">
+              <div
+                className="absolute top-1/2 -right-4 w-9 h-9 bg-surface rounded-full border border-yellow-400 flex items-center justify-center z-20 shadow-lg shadow-yellow-400/20 animate-bounce delay-700"
+                aria-hidden="true"
+              >
                 <span className="text-[9px] font-bold text-yellow-400">Net</span>
               </div>
             </div>

@@ -23,13 +23,26 @@ export function ExperienceSection() {
   ];
 
   return (
-    <Section id="experience" padding="xl" className="relative">
+    <Section
+      id="experience"
+      padding="xl"
+      className="relative"
+      ariaLabelledby="experience-heading"
+    >
       {/* Local ambient glow used to enhance glass effect if global isn't enough in this spot */}
-      <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
+      <div
+        className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px] pointer-events-none"
+        aria-hidden="true"
+      />
 
       <Container size="md">
         <div className="text-center mb-16 relative z-10">
-          <HyperText text="Experience" className="text-4xl font-bold mx-auto" />
+          <HyperText
+            text="Experience"
+            className="text-4xl font-bold mx-auto"
+            id="experience-heading"
+            as="h2"
+          />
         </div>
 
         <div className="space-y-8 relative z-10">

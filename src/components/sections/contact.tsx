@@ -30,10 +30,20 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="contact" padding="xl" className="pb-32">
+    <Section
+      id="contact"
+      padding="xl"
+      className="pb-32"
+      ariaLabelledby="contact-heading"
+    >
       <Container size="md">
         <div className="text-center mb-12">
-          <HyperText text="Contact" className="text-4xl font-bold mx-auto" />
+          <HyperText
+            text="Contact"
+            className="text-4xl font-bold mx-auto"
+            id="contact-heading"
+            as="h2"
+          />
         </div>
 
         <div className="relative glass-panel p-8 md:p-10 rounded-2xl max-w-2xl mx-auto shadow-2xl">
@@ -54,6 +64,7 @@ export function ContactSection() {
                 name="name"
                 type="text"
                 required
+                autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent transition-colors"
@@ -68,6 +79,7 @@ export function ContactSection() {
                 name="message"
                 rows={4}
                 required
+                autoComplete="off"
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent transition-colors resize-none"

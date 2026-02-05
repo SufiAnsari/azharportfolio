@@ -14,6 +14,7 @@ interface SectionProps {
   padding?: SectionPadding;
   className?: string;
   as?: 'section' | 'div' | 'article';
+  ariaLabelledby?: string;
 }
 
 // Vertical padding based on 8pt system
@@ -30,11 +31,13 @@ export function Section({
   id,
   padding = 'lg',
   className = '',
+  ariaLabelledby,
   as: Component = 'section',
 }: SectionProps) {
   return (
     <Component
       id={id}
+      aria-labelledby={ariaLabelledby}
       className={`${paddingClasses[padding]} ${className}`.trim()}
     >
       {children}
