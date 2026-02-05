@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azhar-hakim-portfolio.netlify.app';
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
