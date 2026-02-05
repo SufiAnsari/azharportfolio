@@ -11,6 +11,8 @@ interface HyperTextProps {
     framerProps?: Variants;
     className?: string;
     animateOnLoad?: boolean;
+    id?: string;
+    as?: 'div' | 'h2' | 'h3';
 }
 
 const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -27,6 +29,8 @@ export function HyperText({
     },
     className,
     animateOnLoad = true,
+    id,
+    as: Component = 'div',
 }: HyperTextProps) {
     const [displayText, setDisplayText] = useState(text.split(""));
     const [trigger, setTrigger] = useState(false);
@@ -69,7 +73,8 @@ export function HyperText({
     }, [text, duration, trigger, animateOnLoad]);
 
     return (
-        <div
+        <Component
+            id={id}
             className="flex scale-100 cursor-default overflow-hidden py-2"
             onMouseEnter={triggerAnimation}
         >
@@ -84,6 +89,6 @@ export function HyperText({
                     </motion.span>
                 ))}
             </AnimatePresence>
-        </div>
+        </Component>
     );
 }

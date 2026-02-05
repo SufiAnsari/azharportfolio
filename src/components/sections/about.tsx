@@ -13,11 +13,21 @@ export function AboutSection() {
   ];
 
   return (
-    <Section id="about" padding="xl" className="relative">
+    <Section
+      id="about"
+      padding="xl"
+      className="relative"
+      ariaLabelledby="about-heading"
+    >
       <Container size="lg">
         {/* Title */}
         <div className="mb-16">
-          <HyperText text="About Me" className="text-4xl md:text-5xl font-bold" />
+          <HyperText
+            text="About Me"
+            className="text-4xl md:text-5xl font-bold"
+            id="about-heading"
+            as="h2"
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -40,11 +50,15 @@ export function AboutSection() {
                   alt="Azhar Hakim"
                   fill
                   className="object-cover"
+                  sizes="(min-width: 768px) 320px, 256px"
                 />
               </div>
             </div>
             {/* Decorative blob behind */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent to-transparent opacity-20 blur-3xl -z-10 rounded-full scale-110" />
+            <div
+              className="absolute inset-0 bg-gradient-to-tr from-accent to-transparent opacity-20 blur-3xl -z-10 rounded-full scale-110"
+              aria-hidden="true"
+            />
           </div>
 
           {/* Right: Content */}

@@ -23,12 +23,50 @@ const jetbrainsMono = JetBrains_Mono({
     display: 'swap',
 });
 
+const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
+
 export const metadata: Metadata = {
+    metadataBase: new URL(siteUrl),
     title: {
         default: 'Portfolio | Developer & Systems Engineer',
         template: '%s | Portfolio',
     },
     description: 'Interactive Technical Portfolio',
+    keywords: [
+        'IT Analyst',
+        'Software Developer',
+        'Systems Engineer',
+        'Portfolio',
+        'Endpoint Support',
+        '.NET',
+        'TypeScript',
+    ],
+    authors: [{ name: 'Azhar Hakim' }],
+    creator: 'Azhar Hakim',
+    robots: {
+        index: true,
+        follow: true,
+    },
+    alternates: {
+        canonical: '/',
+    },
+    openGraph: {
+        type: 'website',
+        url: '/',
+        title: 'Portfolio | Developer & Systems Engineer',
+        description: 'Interactive Technical Portfolio',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Portfolio | Developer & Systems Engineer',
+        description: 'Interactive Technical Portfolio',
+    },
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
 };
 
 export const viewport: Viewport = {
@@ -71,4 +109,3 @@ export default function RootLayout({
         </html>
     );
 }
-

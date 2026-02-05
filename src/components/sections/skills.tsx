@@ -19,7 +19,7 @@ const SkillRow = ({ name, level }: { name: string; level: number }) => {
           <span className="text-sm font-medium">{name}</span>
         </div>
         {/* Dots container */}
-        <div className="flex gap-2">
+        <div className="flex gap-2" aria-hidden="true">
           {[...Array(totalDots)].map((_, i) => (
             <div
               key={i}
@@ -30,6 +30,7 @@ const SkillRow = ({ name, level }: { name: string; level: number }) => {
             />
           ))}
         </div>
+        <span className="sr-only">{`${name} proficiency: ${level} out of ${totalDots}`}</span>
       </div>
     </div>
   );
@@ -56,11 +57,16 @@ export function SkillsSection() {
   };
 
   return (
-    <Section id="skills" padding="xl">
+    <Section id="skills" padding="xl" ariaLabelledby="skills-heading">
       <Container size="lg">
         {/* Title */}
         <div className="text-center mb-16">
-          <HyperText text="My Skills" className="text-4xl font-bold mx-auto" />
+          <HyperText
+            text="My Skills"
+            className="text-4xl font-bold mx-auto"
+            id="skills-heading"
+            as="h2"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
