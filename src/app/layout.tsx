@@ -1,27 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import { Footer } from '@/components/layout';
-import { MiniNavbar } from '@/components/ui/mini-navbar';
-import { ThemeProvider } from '@/components/providers';
 import './globals.css';
-
-/**
- * Primary UI Font - Inter
- */
-const inter = Inter({
-    variable: '--font-inter',
-    subsets: ['latin'],
-    display: 'swap',
-});
-
-/**
- * Secondary Technical Font - JetBrains Mono
- */
-const jetbrainsMono = JetBrains_Mono({
-    variable: '--font-mono',
-    subsets: ['latin'],
-    display: 'swap',
-});
 
 const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azhar-hakim-portfolio.netlify.app';
@@ -39,7 +17,7 @@ export const metadata: Metadata = {
         'IT Analyst Pune',
         'Endpoint Support Engineer',
         'Software Developer',
-        'Endpoint Support',
+        'C#',
         '.NET',
         'PowerShell',
         'Windows Server',
@@ -76,8 +54,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
     themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-        { media: '(prefers-color-scheme: dark)', color: '#0b0f14' },
+        { media: '(prefers-color-scheme: light)', color: '#000000' },
+        { media: '(prefers-color-scheme: dark)', color: '#000000' },
     ],
     width: 'device-width',
     initialScale: 1,
@@ -89,27 +67,26 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html
-            lang="en"
-            className={`${inter.variable} ${jetbrainsMono.variable}`}
-            suppressHydrationWarning
-        >
-            <body className="min-h-screen bg-background text-foreground antialiased">
-                <ThemeProvider>
-                    <a
-                        href="#main-content"
-                        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-surface focus:text-foreground"
-                    >
-                        Skip to main content
-                    </a>
-                    <div className="relative flex min-h-screen flex-col">
-                        <MiniNavbar />
-                        <main id="main-content" className="flex-1">
-                            {children}
-                        </main>
-                        <Footer />
-                    </div>
-                </ThemeProvider>
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                {/* Almarai — global UI font */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&display=swap"
+                    rel="stylesheet"
+                />
+            </head>
+            <body className="min-h-screen bg-black text-primary antialiased">
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-black focus:text-primary"
+                >
+                    Skip to main content
+                </a>
+                <main id="main-content">
+                    {children}
+                </main>
             </body>
         </html>
     );

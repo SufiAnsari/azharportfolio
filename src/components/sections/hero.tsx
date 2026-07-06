@@ -1,151 +1,160 @@
 'use client';
 
-import { Container, Section } from '@/components/ui';
-import Image from 'next/image';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { WordsPullUp } from '@/components/ui/words-pull-up';
 
+const NAV_ITEMS = [
+  'About',
+  'Skills',
+  'Experience',
+  'Contact',
+  'LinkedIn',
+];
+
+/**
+ * HeroSection — Azhar Hakim Portfolio
+ *
+ * Prisma-style full-viewport hero with portfolio data:
+ * - Inset rounded container with background video
+ * - SVG noise + gradient overlays
+ * - Pill navbar at top-center
+ * - Giant "Azhar" heading (pull-up animation)
+ * - IT Analyst description + CTA button
+ */
 export function HeroSection() {
+  const descRef = useRef(null);
+  const btnRef = useRef(null);
+  const descInView = useInView(descRef, { once: true });
+  const btnInView = useInView(btnRef, { once: true });
+
   return (
-    <Section
-      padding="xl"
-      className="relative pt-32 lg:pt-48 pb-20 overflow-hidden"
-      ariaLabelledby="hero-heading"
-    >
-      {/* Background Glows */}
-      <div
-        className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-[20%] right-[-10%] w-[400px] h-[400px] bg-accent-secondary/20 rounded-full blur-[100px] pointer-events-none"
-        aria-hidden="true"
-      />
+    <section className="relative h-screen w-full p-4 md:p-6 bg-black">
+      {/* Inset rounded container */}
+      <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
 
-      <Container size="lg">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        {/* Background Video */}
+        <video
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-          {/* Left: Text Content */}
-          <div className="flex-1 text-center lg:text-left z-10 animate-fade-in-up">
-            <h1
-              id="hero-heading"
-              className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight"
-            >
-              Hi, I&apos;m <br className="hidden md:block" />
-              Azhar Hakim
-            </h1>
+        {/* Noise Overlay */}
+        <div className="noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10" />
 
-            <h2 className="text-base md:text-lg lg:text-xl font-bold mb-6 tracking-tight">
-              <span className="text-gradient">IT Analyst in Pune • Endpoint Support Engineer • .NET Developer</span>
-            </h2>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10 pointer-events-none" />
 
-            <p className="text-foreground-muted text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              I am a dedicated IT professional focused on endpoint support, incident resolution, and
-              .NET application maintenance. I support enterprise users, troubleshoot Windows devices,
-              and keep infrastructure services stable while collaborating with teams to restore service quickly.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-              <a
-                href="/resume.pdf"
-                download
-                className="bg-gradient-primary px-8 py-3 rounded-full text-white font-semibold hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(145,94,255,0.3)]"
-              >
-                Download Resume
-              </a>
-
-              <div className="flex gap-4">
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/in/azhar-hakim-2498b9217"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center hover:border-accent transition-colors cursor-pointer text-foreground-muted hover:text-white"
-                  aria-label="LinkedIn"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-                </a>
-
-                {/* Email */}
-                <a
-                  href="mailto:azarhakim55@gmail.com"
-                  className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center hover:border-accent transition-colors cursor-pointer text-foreground-muted hover:text-white"
-                  aria-label="Email"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Circular Profile Image */}
-          <div className="flex-1 relative animate-fade-in delay-200">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-              {/* Circular Mask / Image Placeholder */}
-              <div className="absolute inset-0 rounded-full bg-surface border-2 border-white/10 overflow-hidden shadow-2xl z-10">
-                <Image
-                  src="/profile.png"
-                  alt="Azhar Hakim"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 384px, (min-width: 768px) 288px, 288px"
-                  priority
-                />
-              </div>
-
-              {/* Floating Orbit Elements (Visual Flair) */}
-              <div
-                className="absolute -inset-4 border border-accent/30 rounded-full animate-[spin_10s_linear_infinite]"
-                aria-hidden="true"
-              />
-              <div
-                className="absolute -inset-12 border border-accent-secondary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"
-                aria-hidden="true"
-              />
-
-              {/* Decorative Icon Bubbles */}
-              {/* C# Bubble */}
-              <div
-                className="absolute top-0 right-10 w-12 h-12 bg-surface rounded-full border border-accent flex items-center justify-center z-20 shadow-lg shadow-accent/20 animate-bounce delay-100"
-                aria-hidden="true"
-              >
-                <span className="text-xs font-bold text-accent">C#</span>
-              </div>
-
-              {/* .NET Bubble */}
-              <div
-                className="absolute bottom-12 left-0 w-14 h-14 bg-surface rounded-full border border-accent-secondary flex items-center justify-center z-20 shadow-lg shadow-accent-secondary/20 animate-bounce delay-300"
-                aria-hidden="true"
-              >
-                <span className="text-xs font-bold text-accent-secondary">.NET</span>
-              </div>
-
-              {/* PowerShell Bubble - Top Left */}
-              <div
-                className="absolute top-10 left-4 w-10 h-10 bg-surface rounded-full border border-teal-400 flex items-center justify-center z-20 shadow-lg shadow-teal-400/20 animate-bounce delay-500"
-                aria-hidden="true"
-              >
-                <span className="text-[10px] font-bold text-teal-400">PS</span>
-              </div>
-
-              {/* Windows Bubble - Bottom Right */}
-              <div
-                className="absolute bottom-4 right-12 w-11 h-11 bg-surface rounded-full border border-blue-400 flex items-center justify-center z-20 shadow-lg shadow-blue-400/20 animate-bounce delay-200"
-                aria-hidden="true"
-              >
-                <span className="text-[10px] font-bold text-blue-400">Win</span>
-              </div>
-
-              {/* Network Bubble - Far Right Middle */}
-              <div
-                className="absolute top-1/2 -right-4 w-9 h-9 bg-surface rounded-full border border-yellow-400 flex items-center justify-center z-20 shadow-lg shadow-yellow-400/20 animate-bounce delay-700"
-                aria-hidden="true"
-              >
-                <span className="text-[9px] font-bold text-yellow-400">Net</span>
-              </div>
-            </div>
-          </div>
-
+        {/* Pill Navbar */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30">
+          <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
+            <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
+              {NAV_ITEMS.map((item) => (
+                <li key={item}>
+                  <a
+                    href={item === 'LinkedIn'
+                      ? 'https://www.linkedin.com/in/azhar-hakim-2498b9217'
+                      : `#${item.toLowerCase()}`}
+                    target={item === 'LinkedIn' ? '_blank' : undefined}
+                    rel={item === 'LinkedIn' ? 'noopener noreferrer' : undefined}
+                    className="text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-colors duration-200"
+                    style={{ color: 'rgba(225, 224, 204, 0.8)' }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.color = '#E1E0CC';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        'rgba(225, 224, 204, 0.8)';
+                    }}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-      </Container>
-    </Section>
+
+        {/* Hero Content — bottom-aligned 12-col grid */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 grid grid-cols-12 items-end">
+          {/* Left 8 cols — Giant Heading */}
+          <div className="col-span-12 lg:col-span-8">
+            <h1
+              className="font-medium leading-[0.85] tracking-[-0.07em] select-none"
+              style={{
+                fontSize: 'clamp(120px, 18vw, 380px)',
+                color: '#E1E0CC',
+              }}
+            >
+              <WordsPullUp text="Azhar." />
+            </h1>
+          </div>
+
+          {/* Right 4 cols — Description + Button */}
+          <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 pb-6 px-4 lg:px-0 lg:pb-8 lg:pr-8">
+            {/* Role badge */}
+            <motion.p
+              className="text-[10px] sm:text-xs tracking-widest uppercase"
+              style={{ color: 'rgba(222, 219, 200, 0.5)' }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={descInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              IT Analyst · Pune
+            </motion.p>
+
+            {/* Description */}
+            <motion.p
+              ref={descRef}
+              className="text-xs sm:text-sm md:text-base"
+              style={{ color: 'rgba(222, 219, 200, 0.7)', lineHeight: 1.2 }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={descInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              IT Analyst at Capita with experience in endpoint support, Windows
+              infrastructure, and .NET application development. Open to new
+              opportunities in Pune and beyond.
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              ref={btnRef}
+              initial={{ y: 20, opacity: 0 }}
+              animate={btnInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300"
+                style={{ color: '#000000' }}
+              >
+                <span className="font-medium text-sm sm:text-base">Get in touch</span>
+                <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                  <ArrowRight
+                    size={16}
+                    style={{ color: '#E1E0CC' }}
+                    strokeWidth={2}
+                  />
+                </span>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
