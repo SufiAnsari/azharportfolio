@@ -90,6 +90,10 @@ function SkillCard({
             src={card.iconUrl}
             alt={card.title}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover"
+            onError={(e) => {
+              // Hide broken icon — card layout is unaffected without it.
+              (e.currentTarget as HTMLImageElement).style.display = 'none';
+            }}
           />
         </div>
 
@@ -164,6 +168,14 @@ function VideoCard({ index }: { index: number }) {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+          // Hide broken video — the card background colour acts as fallback.
+          // Log server-side only; nothing is exposed in the DOM.
+          console.warn(
+            JSON.stringify({ ts: new Date().toISOString(), level: 'WARN', message: 'Features section video failed to load' }),
+          );
+          (e.currentTarget as HTMLVideoElement).style.display = 'none';
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">

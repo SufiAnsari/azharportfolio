@@ -20,12 +20,26 @@ export function ContactSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const [formData, setFormData] = useState({ name: '', message: '' });
+  const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:azarhakim55@gmail.com?subject=${subject}&body=${body}`;
+    setSubmitError(false);
+    try {
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\n\nMessage:\n${formData.message}`);
+      window.location.href = `mailto:azarhakim55@gmail.com?subject=${subject}&body=${body}`;
+    } catch {
+      // Log to server/console only — never expose the raw error to the user.
+      console.error(
+        JSON.stringify({
+          ts: new Date().toISOString(),
+          level: 'ERROR',
+          message: 'Contact form mailto dispatch failed',
+        }),
+      );
+      setSubmitError(true);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -124,7 +138,6 @@ export function ContactSection() {
               />
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               className="group w-full inline-flex items-center justify-between bg-primary rounded-full pl-6 pr-2 py-2 transition-all duration-300"
@@ -135,6 +148,25 @@ export function ContactSection() {
                 <ArrowRight size={16} style={{ color: '#E1E0CC' }} strokeWidth={2} />
               </span>
             </button>
+
+            {/* Generic error message — no internal details exposed */}
+            {submitError && (
+              <p
+                role="alert"
+                aria-live="assertive"
+                className="text-center text-[11px] sm:text-xs"
+                style={{ color: 'rgba(222,100,100,0.85)' }}
+              >
+                Couldn&apos;t open your mail client. Please email directly at{' '}
+                <a
+                  href="mailto:azarhakim55@gmail.com"
+                  className="underline underline-offset-2"
+                  style={{ color: 'rgba(222,120,120,0.9)' }}
+                >
+                  azarhakim55@gmail.com
+                </a>
+              </p>
+            )}
           </form>
 
           {/* Direct email link */}

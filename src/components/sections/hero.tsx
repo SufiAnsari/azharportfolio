@@ -42,6 +42,14 @@ export function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            // Hide the broken video element — the gradient overlay acts as fallback.
+            // Log a warning server-side only; no error details reach the DOM.
+            console.warn(
+              JSON.stringify({ ts: new Date().toISOString(), level: 'WARN', message: 'Hero background video failed to load' }),
+            );
+            (e.currentTarget as HTMLVideoElement).style.display = 'none';
+          }}
         />
 
         {/* Noise Overlay */}
