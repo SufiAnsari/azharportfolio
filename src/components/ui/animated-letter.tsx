@@ -1,37 +1,35 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 
 interface AnimatedLetterProps {
   char: string;
   index: number;
   totalChars: number;
-  scrollTarget: React.RefObject<HTMLElement | null>;
+  scrollTarget?: React.RefObject<HTMLElement | null>;
+  progress?: MotionValue<number>;
 }
 
 /**
  * AnimatedLetter
  *
  * Each character's opacity transitions from 0.2 → 1 based on
- * scroll position within the parent section. Creates a progressive
- * text reveal effect as the user scrolls through the About section.
- *
- * Uses useScroll with target offset ['start 0.8', 'end 0.2']
- * Character staggering: charProgress = index / totalChars
- * Range: [charProgress - 0.1, charProgress + 0.05]
+ * scroll position within the parent section.
+ * Accepts a shared `progress` MotionValue from parent to avoid 300+ hook listeners.
  */
 export function AnimatedLetter({
   char,
   index,
   totalChars,
   scrollTarget,
+  progress,
 }: AnimatedLetterProps) {
-  const { scrollYProgress } = useScroll({
+  const fallbackScroll = useScroll({
     target: scrollTarget,
     offset: ['start 0.8', 'end 0.2'],
   });
 
+  const scrollYProgress = progress ?? fallbackScroll.scrollYProgress;
   const charProgress = index / totalChars;
 
   const opacity = useTransform(

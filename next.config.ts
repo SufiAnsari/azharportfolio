@@ -12,10 +12,7 @@ const nextConfig: NextConfig = {
   },
 
   // Experimental features
-  experimental: {
-    // Enable optimized package imports
-    optimizePackageImports: ['next-themes'],
-  },
+  experimental: {},
 
   async headers() {
     return [

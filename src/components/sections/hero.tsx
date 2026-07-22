@@ -78,6 +78,7 @@ export function HeroSection() {
                       : `#${item.toLowerCase()}`}
                     target={item === 'LinkedIn' ? '_blank' : undefined}
                     rel={item === 'LinkedIn' ? 'noopener noreferrer' : undefined}
+                    aria-current={item === 'About' ? 'page' : undefined}
                     className="text-xs sm:text-sm font-medium transition-all duration-200 hover:text-white text-primary/80 hover:scale-105 inline-block"
                   >
                     {item}

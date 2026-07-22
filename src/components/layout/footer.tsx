@@ -70,6 +70,7 @@ export function Footer() {
               <Mail className="w-4 h-4" />
             </a>
             <button
+              type="button"
               onClick={scrollToTop}
               className="p-2.5 rounded-full bg-primary text-black hover:bg-white transition-all duration-200 active:scale-95 ml-2"
               aria-label="Back to top"

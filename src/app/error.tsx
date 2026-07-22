@@ -39,7 +39,7 @@ export default function GlobalError({ error, reset }: ErrorPageProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'Almarai, system-ui, sans-serif',
+          fontFamily: 'Outfit, system-ui, sans-serif',
           color: '#E1E0CC',
         }}
       >

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll } from 'framer-motion';
 import { WordsPullUpMultiStyle } from '@/components/ui/words-pull-up-multi-style';
 import { AnimatedLetter } from '@/components/ui/animated-letter';
 import { ShieldCheck, Code2, Server, MapPin } from 'lucide-react';
@@ -62,6 +62,10 @@ export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const chars = ABOUT_TEXT.split('');
   const inView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 0.8', 'end 0.2'],
+  });
 
   return (
     <section
@@ -102,7 +106,7 @@ export function AboutSection() {
                     char={char}
                     index={i}
                     totalChars={chars.length}
-                    scrollTarget={sectionRef}
+                    progress={scrollYProgress}
                   />
                 ))}
               </p>
