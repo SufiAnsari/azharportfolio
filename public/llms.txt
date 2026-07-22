@@ -1,0 +1,28 @@
+# Azhar Hakim — IT Analyst & Software Developer
+
+> Portfolio Website: https://azhar-hakim-portfolio.netlify.app/
+> Contact Email: azarhakim55@gmail.com
+> LinkedIn: https://www.linkedin.com/in/azhar-hakim-2498b9217
+> Primary Location: Pune, Maharashtra, India
+
+## Summary
+Azhar Hakim is an experienced IT Analyst and Software Developer based in Pune, India. He has over 4 years of professional IT industry experience across enterprise IT support, Windows infrastructure management, incident resolution, PowerShell scripting, and .NET application development.
+
+## Professional Experience
+
+### IT Analyst — Capita (May 2023 – Present)
+- Delivers enterprise endpoint support and incident resolution for business operations in Pune.
+- Manages Windows desktop and server diagnostics, application troubleshooting, and connectivity issues.
+- Administers core infrastructure services including DNS, DHCP, Active Directory, and system health monitoring.
+- Utilizes ITSM ticketing workflows to track incidents, analyze root causes, and restore critical services within SLA windows.
+
+### Junior Software Developer — Allscripts Technology (Sep 2021 – Apr 2023)
+- Built and maintained enterprise .NET applications using C# and SQL for internal business processes.
+- Performed code updates, bug fixes, and feature enhancements in collaboration with senior developer teams.
+- Executed database queries and data validation scripts to maintain application data integrity.
+- Provided technical documentation and tier-2 user support for application deployments.
+
+## Core Technical Skills
+- **Infrastructure & Systems**: Windows Server, Endpoint Diagnostics, Active Directory, DNS, DHCP, ITSM Ticketing.
+- **Software Engineering**: C#, .NET Framework / .NET Core, SQL Database Querying, PowerShell Scripting, TypeScript, Next.js.
+- **Process & Reliability**: Root Cause Analysis, Incident Escalation, Technical Documentation, System Stability.

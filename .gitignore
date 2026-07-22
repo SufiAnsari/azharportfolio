@@ -9,6 +9,11 @@ out/
 build/
 dist/
 
+# Skills & CLI Agent Data
+.agents/
+.claude/
+agent/
+
 # Testing
 coverage/
 

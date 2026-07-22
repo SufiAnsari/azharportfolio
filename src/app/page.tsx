@@ -5,15 +5,13 @@ import {
   ExperienceSection,
   ContactSection,
 } from '@/components/sections';
+import { Footer } from '@/components/layout/footer';
 import { ErrorBoundary } from '@/components/ui/error-boundary';
 
 /**
- * Azhar Hakim Portfolio
- * Prisma-style landing page with portfolio data.
+ * Azhar Hakim Portfolio — Redesigned Landing Page
  *
- * Each section is wrapped in its own ErrorBoundary so that a render crash
- * in one section never takes down the rest of the page. Users see a safe
- * fallback message; full error details are logged server-side only.
+ * Each section is wrapped in an ErrorBoundary for resilience.
  */
 export default function HomePage() {
   return (
@@ -32,8 +30,8 @@ export default function HomePage() {
       </ErrorBoundary>
       <ErrorBoundary>
         <ContactSection />
+        <Footer />
       </ErrorBoundary>
     </>
   );
 }
-
